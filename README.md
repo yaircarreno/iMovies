@@ -13,4 +13,4 @@ This repository shows how we can implement Clean Architecture with MVVM (Model V
 
 ## Screenshot
 
-![ScreenShot](https://github.com/yaircarreno/iMovies/blob/master/screenshot/iMovie.gif){:height="339px" width="166px"}
+![ScreenShot](https://github.com/yaircarreno/iMovies/blob/master/screenshot/iMovie.gif)
