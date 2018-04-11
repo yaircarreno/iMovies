@@ -29,10 +29,12 @@ class Coordinator<ResultType> {
     }
     
     func coordinate<T>(to coordinator: Coordinator<T>) -> Single<T> {
-        self.store(coordinator: coordinator)
-        return Observable.just(coordinator.start()).do(onNext: {
-            [weak self] _ in self?.free(coordinator: coordinator)
-        }).asSingle()
+        return Observable.deferred {
+            self.store(coordinator: coordinator)
+            return Observable.just(coordinator.start()).do(onNext: {
+                [weak self] _ in self?.free(coordinator: coordinator)
+            })}
+            .asSingle()
     }
     
     func start() -> ResultType {
